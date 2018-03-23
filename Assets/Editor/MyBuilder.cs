@@ -15,7 +15,6 @@ public class MyBuilder {
 			}
 		}
 		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
-		PlayerSettings.bundleIdentifier = "jp.co.altplus.sakura-ent";
 		PlayerSettings.bundleVersion = "1.0.0";
 		PlayerSettings.statusBarHidden = true;
 		BuildPipeline.BuildPlayer( 
@@ -45,7 +44,6 @@ public class MyBuilder {
 		//BUILD for Device
 		PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
 		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
-		PlayerSettings.bundleIdentifier = "jp.co.altplus.sakura-ent";
 		PlayerSettings.bundleVersion = "1.0.0";
 		PlayerSettings.statusBarHidden = true;
 		string errorMsg_Device = BuildPipeline.BuildPlayer (
