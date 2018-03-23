@@ -15,13 +15,14 @@ public class MyBuilder {
 			}
 		}
 		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
-        	PlayerSettings.statusBarHidden = true;
-        	BuildPipeline.BuildPlayer( 
-            		allScene.ToArray(),
-            		"newgame.apk",
-            		BuildTarget.Android,
-            		BuildOptions.None
-        	);
+		PlayerSettings.bundleVersion = "1.0.0";
+		PlayerSettings.statusBarHidden = true;
+		BuildPipeline.BuildPlayer( 
+				allScene.ToArray(),
+				"newgame.apk",
+				BuildTarget.Android,
+				BuildOptions.None
+		);
 	}
 	
 	// ビルド実行でiOS用のXcodeプロジェクトを作成する例
@@ -43,12 +44,13 @@ public class MyBuilder {
 		//BUILD for Device
 		PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
 		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
+		PlayerSettings.bundleVersion = "1.0.0";
 		PlayerSettings.statusBarHidden = true;
 		string errorMsg_Device = BuildPipeline.BuildPlayer (
-						allScene.ToArray(),
-						"iOS",
-						BuildTarget.iOS,
-			                        opt
+										allScene.ToArray(),
+										"iOS",
+										BuildTarget.iOS,
+										opt
 		                         );
 
 		if (string.IsNullOrEmpty (errorMsg_Device)) {
