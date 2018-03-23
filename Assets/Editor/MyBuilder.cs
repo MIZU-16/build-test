@@ -14,7 +14,7 @@ public class MyBuilder {
 				allScene.Add (scene.path);
 			}
 		}
-		PlayerSettings.applicationIdentifier = "com.yourcompany.newgame";
+		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
         	PlayerSettings.statusBarHidden = true;
         	BuildPipeline.BuildPlayer( 
             		allScene.ToArray(),
@@ -42,7 +42,7 @@ public class MyBuilder {
 
 		//BUILD for Device
 		PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
-		PlayerSettings.applicationIdentifier = "com.yourcompany.newgame";
+		PlayerSettings.applicationIdentifier = "jp.co.altplus.sakura-ent";
 		PlayerSettings.statusBarHidden = true;
 		string errorMsg_Device = BuildPipeline.BuildPlayer (
 						allScene.ToArray(),
