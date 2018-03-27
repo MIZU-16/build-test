@@ -50,7 +50,7 @@ public class MyBuilder {
 		PlayerSettings.productName = "sakura";
 		PlayerSettings.bundleVersion = "1.0.0";
 		PlayerSettings.statusBarHidden = true;
-		PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, "jp.co.altplus.sakura.ent");
+		PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, "jp.co.altplus.sakura");
 		string errorMsg_Device = BuildPipeline.BuildPlayer (
 							allScene.ToArray(),
 							"iOS",
