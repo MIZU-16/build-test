@@ -31,7 +31,7 @@ lane :build do |options|
   case options[:target]
     when "All" then
     when "iOS" then
-      UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
+      #UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
       packageiOS(xcode_project: "#{xcode_project_path}")
     when "Android" then
   end
