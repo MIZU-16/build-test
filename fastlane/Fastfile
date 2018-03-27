@@ -1,0 +1,62 @@
+fastlane 2.87.0
+
+identifier = CredentialsManager::AppfileConfig.try_fetch_value(:package_name)
+path = File.expand_path(File.dirname(__FILE__)) +"/.."
+
+before_all do
+  skip_docs
+end
+
+desc "Build"
+lane :build do |options|
+  skip_docs
+
+  xcode_project_path = "#{path}/#{ENV['OUTPUT_PACKAGE_NAME']}/Unity-iPhone.xcodeproj"
+  app_name = "#{ENV['OUTPUT_PACKAGE_NAME']}"
+
+  build_identifier = "#{identifier}"
+  if options[:change_identifier]
+    build_identifier=build_identifier+"."+options[:change_identifier]
+    app_name = options[:change_identifier]
+  else
+    build_identifier=build_identifier+".develop"
+  end
+  
+  ENV["APP_IDENTIFIER"] = "#{build_identifier}"
+  ENV["PACKAGE_NAME"] = "#{build_identifier}"
+
+  unity_method_option = "/bin_name #{ENV['OUTPUT_PACKAGE_NAME']} /output_path '#{path}' /target_platform #{options[:target]} /app_identifier #{build_identifier} /app_name #{app_name}"
+  ios_option = " /ios_version_name #{ENV['IOS_VERSION_NAME']} /ios_build_no #{ENV['IOS_BUILD_NUMBER']} /provisioning_name test_wildcard_inhouse"
+
+  case options[:target]
+    when "All" then
+    when "iOS" then
+      UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
+      packageiOS(xcode_project: "#{xcode_project_path}")
+    when "Android" then
+  end
+end
+
+desc "build xcode project"
+private_lane :packageiOS do |options|
+  skip_docs
+  path = File.expand_path(File.dirname(__FILE__)) +"/.."
+  xcode_select "/Applications/Xcode.app"
+  gym(
+    project: options[:xcode_project],
+    configuration: "Debug",
+    clean: true,
+    include_bitcode: false,
+    output_directory: "#{path}/iOS/build",
+    output_name: "#{ENV['OUTPUT_PACKAGE_NAME']}.ipa",
+    codesigning_identity: 'iPhone Distribution: Altplus Inc.',
+    export_options: {
+      method: "enterprise",
+      compileBitcode: false,
+      provisioningProfiles: {
+        "#{ENV['PACKAGE_NAME']}":"test_wildcard_inhouse"
+      }
+    }
+  )
+end
+
