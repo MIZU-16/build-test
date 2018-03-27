@@ -49,7 +49,7 @@ private_lane :packageiOS do |options|
     include_bitcode: false,
     output_directory: "#{path}/iOS/build",
     output_name: "#{ENV['OUTPUT_PACKAGE_NAME']}.ipa",
-    codesigning_identity: 'iPhone Developer',
+    codesigning_identity: 'iPhone Distribution: Altplus Inc.',
     export_options: {
       method: "enterprise",
       compileBitcode: false,
