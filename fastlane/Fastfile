@@ -91,6 +91,6 @@ lane :upload do |options|
     when "All" then
     when "Android" then
     when "iOS" then
-      res = sh ("curl -F \"file=@#{path}/iOS/build/#{ENV['OUTPUT_PACKAGE_NAME']}.ipa\" -F \"token=#{ENV['DG_APIKEY']}\" -F \"distribution_name=#{options[:upload_name]}\" https://deploygate.com/api/users/yuyuyupj/apps")
+      res = sh ("curl -F \"file=@#{path}/iOS/build/#{ENV['OUTPUT_PACKAGE_NAME']}.ipa\"")
   end
 end
