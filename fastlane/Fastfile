@@ -60,3 +60,12 @@ private_lane :packageiOS do |options|
   )
 end
 
+desc "Unity CommandLine Build"
+private_lane :UnityCommandLine do |options|
+  case options[:build_editor]
+    when "Android" then
+    when "iOS" then
+      sh ("#{ENV['UNITY_INSTALL_PATH_IOS']} -logFile ./log.txt -buildTarget ios -quit -batchmode -nographics -projectPath '#{path}' -executeMethod #{options[:method_name]} #{options[:method_option]}")
+    else
+  end
+end
