@@ -30,6 +30,7 @@ lane :build do |options|
 
   case options[:target]
     when "All" then
+      UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
     when "iOS" then
       UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
       packageiOS(xcode_project: "#{xcode_project_path}")
@@ -65,7 +66,7 @@ private_lane :UnityCommandLine do |options|
   case options[:build_editor]
     when "Android" then
     when "iOS" then
-      sh ("#{ENV['UNITY_INSTALL_PATH_IOS']} -logFile ./log.txt -buildTarget ios -quit -batchmode -nographics -projectPath '#{path}' -executeMethod #{options[:method_name]} #{options[:method_option]}")
+      sh ("#{ENV['UNITY_INSTALL_PATH_IOS']} -logFile ./log.txt -buildTarget ios -quit -batchmode -nographics -projectPath '#{path}' -executeMethod MyBuilder.BuildProjectAllSceneiOS")
     else
   end
 end
