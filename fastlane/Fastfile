@@ -1,4 +1,4 @@
-#fastlane 2.87.0
+fastlane_version "2.87.0"
 
 identifier = CredentialsManager::AppfileConfig.try_fetch_value(:package_name)
 path = File.expand_path(File.dirname(__FILE__)) +"/.."
@@ -31,7 +31,7 @@ lane :build do |options|
   case options[:target]
     when "All" then
     when "iOS" then
-      #UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
+      UnityCommandLine(method_name: "CommandlineBuild.BuildProjectAllScene", method_option: "#{unity_method_option}" "#{ios_option}", build_editor:"iOS")
       packageiOS(xcode_project: "#{xcode_project_path}")
     when "Android" then
   end
