@@ -69,3 +69,28 @@ private_lane :UnityCommandLine do |options|
     else
   end
 end
+
+lane :upload do |options|
+  skip_docs
+
+  if !options[:branch].nil?
+    sh ("git clean -fdx")
+    sh ("git fetch origin")
+    sh ("git checkout remotes/origin/#{options[:branch]}")
+  end
+
+  if options[:target].nil?
+    target = "All"
+  else
+    target = options[:target]
+  end
+
+  build(target: target, change_identifier: options[:upload_name])
+
+  case target
+    when "All" then
+    when "Android" then
+    when "iOS" then
+      res = sh ("curl -F \"file=@#{path}/iOS/build/#{ENV['OUTPUT_PACKAGE_NAME']}.ipa\" -F \"token=#{ENV['DG_APIKEY']}\" -F \"distribution_name=#{options[:upload_name]}\" https://deploygate.com/api/users/yuyuyupj/apps")
+  end
+end
