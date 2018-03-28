@@ -60,7 +60,7 @@ private_lane :packageiOS do |options|
 	"jp.co.altplus.sakura-ent":"sakura_inhouse"
       }
     },
-    xcargs: "PROVISIONING_PROFILE_SPECIFIER=sakura_inhouse"
+    xcargs: "PROVISIONING_PROFILE_SPECIFIER='sakura_inhouse'"
   )
 end
 
