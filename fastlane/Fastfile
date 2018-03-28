@@ -55,7 +55,7 @@ private_lane :packageiOS do |options|
       method: "enterprise",
       compileBitcode: false,
       provisioningProfiles: {
-        "#{ENV['PACKAGE_NAME']}":"test_wildcard_inhouse"
+        "#{ENV['PACKAGE_NAME']}":"sakura_inhouse"
       }
     }
   )
