@@ -51,6 +51,7 @@ private_lane :packageiOS do |options|
     output_directory: "#{path}/iOS/build",
     output_name: "#{ENV['OUTPUT_PACKAGE_NAME']}.ipa",
     codesigning_identity: 'iPhone Distribution: Altplus Inc.',
+    export_method: "enterprise",
     export_options: {
       method: "enterprise",
       compileBitcode: false,
