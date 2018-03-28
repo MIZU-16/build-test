@@ -38,10 +38,7 @@ public class MyBuilder {
 			}
 		}
 
-		BuildOptions opt = BuildOptions.SymlinkLibraries |
-		                   BuildOptions.AllowDebugging |
-		                   BuildOptions.ConnectWithProfiler |
-		                   BuildOptions.Development;
+		BuildOptions opt = BuildOptions.Development;
 
 		//BUILD for Device
 		PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
