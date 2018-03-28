@@ -54,6 +54,7 @@ private_lane :packageiOS do |options|
     export_options: {
       method: "enterprise",
       compileBitcode: false,
+      signingStyle: "manual",
       provisioningProfiles: {
 	"jp.co.altplus.sakurai-ent":"sakura_inhouse"
       }
