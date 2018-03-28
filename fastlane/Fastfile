@@ -56,7 +56,7 @@ private_lane :packageiOS do |options|
       compileBitcode: false,
       signingStyle: "manual",
       provisioningProfiles: {
-	"jp.co.altplus.sakurai-ent":"sakura_inhouse"
+	"jp.co.altplus.sakura-ent":"sakura_inhouse"
       }
     }
   )
