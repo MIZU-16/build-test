@@ -1,4 +1,4 @@
-fastlane_version "1.96.0"
+fastlane_version "2.88.0"
 
 identifier = CredentialsManager::AppfileConfig.try_fetch_value(:package_name)
 path = File.expand_path(File.dirname(__FILE__)) +"/.."
