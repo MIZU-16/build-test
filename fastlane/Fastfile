@@ -70,7 +70,6 @@ end
 
 lane :upload do |options|
   skip_docs
-  sh "echo aaaaaaaaa"
 
   if !options[:branch].nil?
     sh ("git clean -fdx")
