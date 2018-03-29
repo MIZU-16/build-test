@@ -16,10 +16,7 @@ lane :build do |options|
 
   build_identifier = "#{identifier}"
   if options[:change_identifier]
-    build_identifier=build_identifier+"."+options[:change_identifier]
     app_name = options[:change_identifier]
-  else
-    build_identifier=build_identifier+".develop"
   end
   
   ENV["APP_IDENTIFIER"] = "#{build_identifier}"
